@@ -1,0 +1,18 @@
+{% extends "global/html/base_user_forms.html" %}
+
+{% block content %}
+
+    <h1 class="title">Register</h1>
+
+
+    <div class="backgound">
+      
+        {% include "home/user_forms/partials/forms.html" %}      
+        
+        <div class="extra">
+            Already have an account? Click <a href="{% url "home:login" %}">here</a> to login!
+        </div>
+
+    </div>
+      
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "global/html/base_user_forms.html" %}
+
+{% block content %}
+
+    <h1 class="title">Login</h1>
+
+
+    <div class="backgound">
+        
+        {% if user.is_authenticated %}
+            <p class="form-content"> 
+                {{user.username}}   
+            </p >
+
+            <p class="form-content">
+                Click <a href="{% url "home:logout" %}">Here</a> to logout
+            </p>
+
+            <p class="form-content">
+                Click <a href="{% url "home:home" %}">Here</a> to go to home
+            </p>
+        {% else %}
+            
+            <div class = "include">
+                {% include "home/user_forms/partials/forms.html" %}
+                
+            </div>
+
+            <div>
+                New here? Click <a href="{% url "home:register" %}">here</a> to create an account!
+            </div>
+        {% endif %}
+    
+    </div>
+
+{% endblock content %}
+
+

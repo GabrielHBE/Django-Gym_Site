@@ -1,0 +1,31 @@
+{% extends "global/html/base_gym_forms.html" %}
+
+{% block content %}
+
+    <h1 class="title">Register</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="flex">
+            <div class="backgound">
+                {% for item in form_exercise %}
+                {{item}}
+                {% endfor %}
+            </div>
+                
+            <div class="backgound">
+                <div style="margin-top: 23%;">
+                    {{form.as_p}}
+                    {{form_exercise.management_form}}
+                    <button type="submit" class="btn" style="margin-top: 5%;">Submit</button>
+                    <a href="{% url "home:home" %}">Cancel</a>
+                </div>
+                
+             </div>
+
+        </div>  
+            
+    </form>
+    
+{% endblock content %}

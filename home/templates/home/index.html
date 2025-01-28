@@ -1,0 +1,60 @@
+{% extends "global/html/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <h1 class = "view_title">
+        Home
+    </h1>
+
+    <div class="home_content">
+
+        <div class="workout_of_the_day">
+            <p class="backgound_text">Your workout:</p>
+            <div id = "workout_of_the_day_header">
+                <span>Workout: {{workout_of_the_day}}</span>
+                <a href="{% url "home:start_workout" workout_id %}" id="workout_of_the_day_header_button">
+                    <button>Start</button>
+                </a>
+            </div>
+            <img src="" alt="">
+        </div>
+    
+        <div class="your_profile">  
+            <div class="profile_info"> 
+                <p class="backgound_text">Your profile:</p>
+                <p>Name: {{user_name}}</p>
+                <p>Email: {{user_email}}</p>
+                <p>Instructor: {{user_instructor}}</p>
+                <p>Objective: {{user_objective}}</p>
+                <p>Photo:</p>
+                <img src="" alt="">
+            </div>
+
+            <div class="your_profile_buttons_total"> 
+                <a href="{% url "home:register" %}" class="your_profile_buttons">
+                    <button>Change account</button>
+                </a>
+
+                <a href="" class="your_profile_buttons">
+                    <button>Update profile</button>
+                </a>
+
+                <a href="{% url "home:logout" %}" class="your_profile_buttons">
+                    <button>Logout</button>
+                </a>
+
+                <a href="" class="your_profile_buttons_delete">
+                    <button class="delete_account">Delete account</button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="workout_period">
+        <p>Workout period:</p>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "global/html/base.html" %}
+
+{% block content %}
+    <h1 class = "view_title">
+        Workout
+    </h1>
+
+    <div class="home_content">
+        <div class="workout_of_the_day">
+            <p class="backgound_text">Your workout:</p>
+            <div id = "workout_of_the_day_header">
+                <span>Workout: {{workout_of_the_day}}</span>
+                <a href="{% url "home:start_workout" workout_id %}" id="workout_of_the_day_header_button">
+                    <button>Start</button>
+                </a>
+            </div>
+            <img src="" alt="">
+        </div>
+
+        <div class="completed_trainings_backgound"> 
+            <p class = "backgound_text">Completed trainings</p>
+            <div class="total_completed_trainings">
+
+                {% if completed_trainings == 30 %}
+                    oi
+                {% else %}
+                    {{completed_trainings}}
+                {% endif %}
+      
+            </div>
+            <a href="{% url "home:add_workout" %}" id="change_workout_button">
+                <button>Change / add workout</button>
+            </a>
+        </div>
+
+    </div>
+
+{% endblock content %}

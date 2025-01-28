@@ -1,0 +1,222 @@
+/*------------------------------------Base-------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+button:hover{top:-4px;box-shadow:0 4px 3px #999}
+
+.content {
+    display: flex;
+    flex: 1;
+}
+
+.tabs {
+    background-color: rgba(0, 0, 0, 0.761);
+    width: 10%;
+    text-align: center;
+}
+
+.tab{
+    color: white;
+    display: block;
+    padding: 20%;
+}
+
+.text_tab{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+}
+
+.main {
+    background-color: rgba(0, 0, 0, 0.905);
+    flex: 1;
+}
+
+.view_title{
+    background-color: silver;
+    margin-left: 40px;
+    margin-right: 1500px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+/*------------------------------------Index-------------------------------------*/
+
+.home_content{
+    display: flex;
+    justify-content: space-between;
+    gap:1%;
+}
+
+.workout_of_the_day{
+    background-color: silver;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    height: 500px;
+    border-radius: 15px;
+    flex: 1;
+}
+
+#workout_of_the_day_header {
+    background-color: whitesmoke;
+    margin: 2%;
+    border-radius: 15px;
+    display: flex;
+}
+
+#workout_of_the_day_header_button button{
+    margin-bottom: 8%;
+    font-size: 20px; 
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px; 
+    background-color: #ff6700;
+    color: white;
+    border: none;
+    border-radius: 15px; 
+    margin-top: 20px;
+    flex: 1;
+}
+
+#workout_of_the_day_header span{
+    margin: 3%;
+    font-size: 30px;
+    width: 500px;
+}
+
+.workout_of_the_day span{
+    font-size: 20px;
+}
+
+.your_profile{
+    background-color: silver;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-right: 1.75%;
+    flex: 1;
+    display: flex;
+}
+
+.backgound_text{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-right: 20%;
+    padding: 14px 10px;
+    width: 180px;
+    height: 50px; 
+    background-color: #ff6700; 
+    color: white;
+    border: none; 
+    border-radius: 15px; 
+    text-align: center;
+}
+
+.profile_info{
+    width: 200%;
+}
+
+.your_profile_buttons_total{
+    flex: 1;
+}
+
+.your_profile_buttons button{
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+    width: 190px; 
+    height: 50px; 
+    background-color: #ff6700;
+    color: white;
+    border: none;
+    border-radius: 15px; 
+    text-align: center;
+}
+
+.your_profile_buttons_delete button{
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+    width: 190px; 
+    height: 50px; 
+    background-color: rgb(255, 38, 0);
+    color: white;
+    border: none;
+    border-radius: 15px; 
+    text-align: center;
+}
+
+.profile_info p{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.workout_period{
+    background-color: silver;
+    border-radius: 15px;
+    margin-top: 2%;
+    margin-right: 30px;
+    margin-left: 40px;
+    height: 30%;
+}   
+
+.workout_period p{
+    background-color: #ff6700;
+    color: white;
+    border-radius: 15px;
+    padding: 14px 10px;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px;
+    height: 50px;
+}
+
+
+/*-----------------------------Workout-------------------------*/
+
+.completed_trainings_backgound{
+    background-color: silver;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-right: 1.75%;
+    width: 800px;
+}
+
+.total_completed_trainings{
+    font-size: 150px;
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+#change_workout_button button{
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 5%;
+    width: 250px; 
+    height: 50px; 
+    background-color: #ff6700;
+    color: white;
+    border: none;
+    border-radius: 15px; 
+
+}
+
+#change_workout_button{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
