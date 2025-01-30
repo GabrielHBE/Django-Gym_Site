@@ -21,12 +21,8 @@
             <p class = "backgound_text">Completed trainings</p>
             <div class="total_completed_trainings">
 
-                {% if completed_trainings == 30 %}
-                    oi
-                {% else %}
-                    {{completed_trainings}}
-                {% endif %}
-      
+                {{completed_trainings}}
+                
             </div>
             <a href="{% url "home:add_workout" %}" id="change_workout_button">
                 <button>Change / add workout</button>

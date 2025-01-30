@@ -27,8 +27,11 @@
         </div>
     {% endfor %}
 
-    <button class="finish_workout_button">
-        Finish Workout
-    </button>
+    <a href="{% url "home:finish_workout" %}">
+        <button class="finish_workout_button">
+            Finish Workout
+        </button>
+
+    </a>
 
 {% endblock content %}

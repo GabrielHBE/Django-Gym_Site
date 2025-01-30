@@ -1,9 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from home.models import *
 from home.funcs import *
-from datetime import date, datetime
-from django.db.models import F
-
 
 # Create your views here.
 def home(request):
@@ -84,13 +81,10 @@ def workout(request):
     if user_workout is not None:
         current_workout = get_today_workout(user_workout,user)
 
-    print(f'view {user_params.get('completed_trains')}')
-    
-
     context = {
         'workout_of_the_day': current_workout.get('name'),
         'title': 'Workout',
-        'completed_trains': user_params.get('completed_trains'),
+        'completed_trainings': user_params.get('completed_trainings'),
         'workout_id': current_workout.get('id')
     }
 
@@ -133,7 +127,7 @@ def finish_workout(request):
     if user_params.completed_trainings is None:
         user_params.completed_trainings = 0
 
-    user_params.completed_trainings = F('completed_trainings') +1
+    user_params.completed_trainings +=1
     user_params.save()
     
     workout_list = get_user_workout(user)    
@@ -150,8 +144,5 @@ def finish_workout(request):
         user_params.current_workout=workout_list[0].get('name')
 
     user_params.save()
-
-    print(user_params.current_workout)
-    print(user_params.completed_trainings)
 
     return redirect('home:workout')

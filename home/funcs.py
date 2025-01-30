@@ -20,7 +20,6 @@ def get_user_params(user):
         if completed_trainings is None:
             completed_trainings = 0
 
-
     return {
         'instructor': instructor,
         'gender': gender,
