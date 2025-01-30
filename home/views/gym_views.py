@@ -105,14 +105,21 @@ def start_workout(request,id):
 
     exercises = user_workout.exercises.all()
 
-    for i in exercises:
-        print(i)
+    exercises_with_range = []
+    for exercise in exercises:
 
-    print(user_workout)
+        exercises_with_range.append({
+            "name": exercise.name,
+            "duration": exercise.duration,
+            "reps": exercise.reps,
+            "series": exercise.series,
+            "series_range": range(exercise.series if exercise.series else 0),  # Garante que 0 séries não gera erro
+        })
 
     context = {
-        'title': 'teste',
-        'workout_name': user_workout
+        'title': f'Workout {user_workout}',
+        'workout_name': user_workout,   
+        'exercises': exercises_with_range,
     }
 
     return render(request, 'home/start_workout.html',context)
@@ -128,14 +135,13 @@ def finish_workout(request):
 
     user_params.completed_trainings = F('completed_trainings') +1
     user_params.save()
-
     
     workout_list = get_user_workout(user)    
     current_workout = get_today_workout(workout_list,user)
 
     pos=0
     for i in range(len(workout_list)):
-        if workout_list[i].get('name') ==current_workout.get('name'):
+        if workout_list[i].get('name') == current_workout.get('name'):
             pos=i+1
 
     try: 

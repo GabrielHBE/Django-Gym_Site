@@ -9,9 +9,59 @@
 </head>
 <body>
 
-    <main class="content">
-        {% block content %}{% endblock content %}
-    </main>
+    <script>
+
+        var imagem2 = '{% static "global/images/ButtonClicked.png" %}';
+        var imagem1 = '{% static "global/images/ButtonUnclicked.png" %}';
+
+        function changeImage() {
+            var botao = document.getElementById('exercise_button_image');
+            if (botao.src.endsWith('global/images/ButtonUnclicked.png')) {
+                botao.src = imagem2;  // Troca para imagem2.png
+            } else {
+                botao.src = imagem2;  // Troca para imagem1.png
+            }
+            console.log('oi');
+        }
+    </script>
+
+
+    <div class="content">
+
+        <div class = "tabs">
+
+            <img src="{% static 'global/images/halter_header.png' %}" height="150" width="150">
+            
+            <a href="{% url "home:home" %}" class="tab">
+                <img src="{% static 'global/images/House_tab.png' %}" alt="Home" class="home_tab_image" height="50" width="50">
+                <p class="text_tab">Home</p>
+            </a>
+
+            <a href="{% url "home:instructor" %}" class="tab">
+                <img src="{% static 'global/images/Profile.png' %}" alt="Instructor" class="instructor_tab_image" height="50" width="50">
+                <p class="text_tab">Instructor</p>
+            </a>
+
+            <a href="{% url "home:workout" %}" class="tab">
+                <img src="{% static 'global/images/Halter.png' %}" alt="" class="workout_tab_image" height="50" width="50">
+                <p class="text_tab">Workout</p>
+            </a>
+
+            <a href="{% url "home:about" %}" class="tab">
+                <img src="{% static 'global/images/Exclamation_mark.png' %}" alt="" class="about_tab_image" height="50" width="50">
+                <p class="text_tab">About</p>
+            </a>
+
+            <a href="{% url "home:schedule" %}" class="tab" >
+                <img src="{% static 'global/images/Calendar.png' %}" alt="" class="about_tab_image" height="50" width="50">
+                <p class="text_tab">Schedule</p>
+            </a>
+        </div>
+
+        <div class = "main">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
     
 </body>
 </html>

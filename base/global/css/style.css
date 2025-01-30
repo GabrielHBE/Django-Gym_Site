@@ -220,3 +220,71 @@ button:hover{top:-4px;box-shadow:0 4px 3px #999}
     justify-content: center;
     text-decoration: none;
 }
+
+/*-----------------------------Start Workout-------------------------*/
+
+.exercise_background{
+    background-color: silver;
+    border-radius: 15px;
+    font-size: 30px;
+    margin: 2%;
+    height: auto;
+    width: 50%;
+    padding: 1%;
+    margin-left: 30%;
+    text-align: center;
+    
+}
+
+.exercise_series{
+    background-color: rgba(0, 0, 0, 0.905);
+    width: 500px;
+    border-radius: 15px;
+    display: flex;
+    margin: 10px;
+    color: azure;
+    justify-content: center;
+    margin-left: 20%;
+}
+
+.exercise_series p{
+    margin-right: 70%;
+    margin-top: 3%;
+    background-color: #ff6700;
+    height: 2%;
+    width: 15%;
+    border-radius: 15px;
+}
+
+.exercise_series button{
+    margin: 1%;
+    background-color: rgba(0, 0, 0, 0.905);
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.timer_button{
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 5%;
+    width: 200px; 
+    height: 50px; 
+    background-color: #ff6700;
+    color: white;
+    border: none;
+    border-radius: 15px; 
+}
+
+.finish_workout_button{
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-left: 50%;
+    width: 200px; 
+    height: 50px; 
+    background-color: #ff6700;
+    color: white;
+    border: none;
+    border-radius: 15px; 
+}

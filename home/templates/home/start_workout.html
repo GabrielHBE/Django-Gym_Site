@@ -1,7 +1,34 @@
 {% extends "global/html/base.html" %}
 
+{% load static %}
+
 {% block content %}
     <h1 class = "view_title">
         Workout: {{workout_name}}
     </h1>
+
+    <div class="exercise_background">
+        <div class="timer">00:00:00</div>
+        <button onclick="start()" class="timer_button">Start</button>
+        <button onclick="pause()" class="timer_button">Pause</button>
+    </div>
+        
+    {% for exercise in exercises %}
+        <div class="exercise_background">
+            Name: {{ exercise.name }} / Duration: {{ exercise.duration }}
+            {% for i in exercise.series_range %}
+                <div class="exercise_series">
+                    <p>{{ exercise.reps }} X</p>
+                     <button onclick="changeImage('{{ forloop.parentloop.counter }}_{{ i }}')">
+                         <img src="{% static "global/images/ButtonUnclicked.png" %}" id="{{ forloop.parentloop.counter }}_{{ i }}">
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <button class="finish_workout_button">
+        Finish Workout
+    </button>
+
 {% endblock content %}

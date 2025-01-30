@@ -9,6 +9,65 @@
 </head>
 <body>
 
+    <script>
+
+        var imagem2 = '{% static "global/images/ButtonClicked.png" %}';
+        var imagem1 = '{% static "global/images/ButtonUnclicked.png" %}';
+
+
+        function changeImage(id) {
+            var botao = document.getElementById(id);
+            if (botao.src.endsWith('global/images/ButtonUnclicked.png')) {
+                botao.src = imagem2;
+            } else {
+                botao.src = imagem2;
+            }
+        }
+
+    </script>
+
+    <script>
+
+        let timer;
+        let sec = 0;
+        let loop = false;
+
+        function formatTime(seg) {
+            const h = String(Math.floor(seg / 3600)).padStart(2, '0');
+            const m = String(Math.floor((seg % 3600) / 60)).padStart(2, '0');
+            const s = String(seg % 60).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+        }
+
+        function updateDisplay() {
+            document.querySelector(".timer").textContent = formatTime(sec);
+        }
+
+        function start() {
+            if (!loop) {
+                loop = true;
+                timer = setInterval(() => {
+                    sec++;
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+
+        function pause() {
+            clearInterval(timer);
+            loop = false;
+        }
+
+        function reset() {
+            clearInterval(timer);
+            sec = 0;
+            loop = false;
+            updateDisplay();
+        }
+
+        window.onload = start;
+    </script>
+
 
     <div class="content">
 
