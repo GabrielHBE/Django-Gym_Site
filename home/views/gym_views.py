@@ -14,12 +14,9 @@ def home(request):
     user_params = get_user_params(user)
 
     user_workout = get_user_workout(user)
-    for i in user_workout:
-        print(i)
   
     if user_workout is not None:
         current_workout = get_today_workout(user_workout,user)
-
 
     context = {
         'title': 'Home',    

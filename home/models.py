@@ -69,14 +69,13 @@ class Workout(models.Model):
 
 
 class Exercises(models.Model):
-    name = models.CharField(max_length=100,blank=True,null=True)
+    name = models.CharField(max_length=100)
     duration = models.DurationField(blank=True, null=True)
     series = models.PositiveIntegerField(blank=True, null=True)
     reps = models.PositiveIntegerField(blank=True, null=True)
 
     workout = models.ForeignKey(
         Workout,
-        blank=True,
         null=True,
         on_delete=models.CASCADE,
         related_name="exercises",

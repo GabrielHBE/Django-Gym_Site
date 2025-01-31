@@ -70,7 +70,6 @@ def get_user_workout(user_):
 def get_today_workout(workout_list,user):
 
     workout_list.sort(key=lambda x: x["name"])
-
     user_params = UserParams.objects.filter(user_id=user.id).order_by('id')
     for i in user_params:
         current_workout = i.current_workout
@@ -102,7 +101,7 @@ def get_today_workout(workout_list,user):
                 'description': 'Error',
                 'duration': 'Error',
                 'user': 'Error',
-                'id':'Error'
+                'id':None
             }
 
         
@@ -126,9 +125,9 @@ def get_today_workout(workout_list,user):
             return workout_dict
         
     return {
-            'name': 'ErrorA',
+            'name': '----',
             'description': 'Error',
             'duration': 'Error',
             'user': 'Error',
-            'id':'Error'
+            'id': None
         }
