@@ -24,5 +24,6 @@ urlpatterns = [
     path('user/logout/',views.logout, name='logout'),
 
     #home_forms
-    path('workout/add-workout/',views.add_workout,name='add_workout')
+    path('workout/add-workout/',views.add_workout,name='add_workout'),
+    path('workout/add-instructor/',views.add_instructor,name='add_instructor')
 ]

@@ -10,9 +10,11 @@
             <p class="backgound_text">Your workout:</p>
             <div id = "workout_of_the_day_header">
                 <span>Workout: {{workout_of_the_day}}</span>
-                <a href="{% url "home:start_workout" workout_id %}" id="workout_of_the_day_header_button">
-                    <button>Start</button>
-                </a>
+                {% if workout_id %}
+                    <a href="{% url "home:start_workout" workout_id %}" id="workout_of_the_day_header_button">
+                        <button>Start</button>
+                    </a>
+                {% endif %}  
             </div>
             <img src="" alt="">
         </div>

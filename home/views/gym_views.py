@@ -12,6 +12,9 @@ def home(request):
     
     #User data
     user_params = get_user_params(user)
+    instructor = user_params.get('instructor')
+    if instructor is None:
+        instructor = 'No instructor in your account'
 
     user_workout = get_user_workout(user)
   
@@ -23,7 +26,7 @@ def home(request):
         'workout_of_the_day': current_workout.get('name'),
         'user_name': user.username,
         'user_email': user.email,
-        'user_instructor': user_params.get('instructor'),
+        'user_instructor': instructor,
         'user_objective': user_params.get('objective'),
         'workout_id': current_workout.get('id')
     }
@@ -56,9 +59,18 @@ def instructors(request):
 
     if not request.user.is_authenticated:
         return redirect('home:login')
+    
+    user = request.user
+
+    user_params = get_user_params(user)
+
+    if user_params.get('instructor') is None:
+        return redirect('home:add_instructor')
+
 
     context = {
         'title': 'Instructors',
+        'istructor': user_params.get('instructor')
     }
 
     return render(request, 'home/instructor.html',context)

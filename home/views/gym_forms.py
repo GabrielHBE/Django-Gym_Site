@@ -1,11 +1,13 @@
 from django.shortcuts import render,redirect # type: ignore
-from home.forms import  ExerciseForm, WorkoutForm
+from home.forms import  ExerciseForm, WorkoutForm, InstructorForm
 from home.models import Workout,Exercises,UserParams
 from django.forms.models import inlineformset_factory # type: ignore
 from home.funcs import *
 
-
 def add_workout(request,workout_id=None):
+
+    if not request.user.is_authenticated:
+        return redirect('home:login')
 
     user = UserParams.objects.filter(user_id=request.user.id).order_by('-user_id')
 
@@ -40,6 +42,7 @@ def add_workout(request,workout_id=None):
             workout.save()
             form_exercise.instance = workout
             form_exercise.save()
+            
 
             return redirect('home:home')
 
@@ -50,3 +53,47 @@ def add_workout(request,workout_id=None):
         }
 
     return render(request,'home/home_forms/add_workout.html',context)
+
+
+def add_instructor(request):
+
+    if not request.user.is_authenticated:
+        return redirect('home:login')
+
+    user = UserParams.objects.filter(user_id=request.user.id).order_by('user_id').first()
+
+    form = InstructorForm()
+
+    if request.method == 'POST':
+        form = InstructorForm(request.POST)
+        
+        if form.is_valid():
+            new_instructor = form.save(commit=False)
+            user.instructor = new_instructor
+            new_instructor.save()
+            user.save()
+
+            return redirect('home:home')
+        
+
+        context = {
+            'title': 'Add instructor',
+            'form': form,
+        }
+
+        return render(
+            request,
+            'home/home_forms/add_instructor.html',
+            context
+        )
+    
+    context = {
+            'title': 'Add instructor',
+            'form': form,
+        }
+
+    return render(
+            request,
+            'home/home_forms/add_instructor.html',
+            context
+        )

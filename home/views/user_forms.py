@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect # type: ignore
 from home.forms import RegisterForm, UserParamsForm # type: ignore
-from django.contrib import messages # type: ignore
 from django.contrib.auth.forms import AuthenticationForm # type: ignore
 from django.contrib import auth # type: ignore
 from django.contrib.auth import login as auth_login
@@ -22,7 +21,8 @@ def register(request):
             new_user_params.user = user
             new_user_params.completed_trainings = 0
             new_user_params.save()
-            messages.success(request,'Usuário logado')
+
+            auth_login(request, user)
             return redirect('home:login')
 
     context = {
@@ -40,10 +40,8 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
-            messages.success(request, 'Logado com sucesso')
             return redirect('home:home')
 
-        messages.error(request, 'Erro ao realizar login')
 
     context = {
         'form': form,

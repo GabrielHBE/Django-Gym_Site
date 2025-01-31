@@ -6,8 +6,6 @@ def get_user_params(user):
 
     for i in user_params:
         instructor = i.instructor
-        if instructor is None:
-            instructor = 'No instructor in your account'
         gender = i.gender
         photo = i.photo
         birth_date = i.birth_date

@@ -49,7 +49,7 @@ class WorkoutForm(forms.ModelForm):
 class ExerciseForm(forms.ModelForm):
 
     class Meta:
-        models = Exercises
+        model = Exercises
         fields = ('name','duration','series','reps',)
 
     def clean(self):
@@ -60,3 +60,21 @@ class ExerciseForm(forms.ModelForm):
             self.add_error('name',ValidationError('Add a name to the exercise'))
 
         return super().clean()
+    
+
+class InstructorForm(forms.ModelForm):
+
+    class Meta:
+        model = Instructor
+        fields = ('name','birth_date','gender','about',)
+
+    def clean(self):
+
+        name = self.cleaned_data.get('name')
+
+        if not name:
+            self.add_error('name',ValidationError('Add a name to the instructor'))
+
+
+        return super().clean()
+    
