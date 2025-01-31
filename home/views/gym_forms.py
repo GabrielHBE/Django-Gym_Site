@@ -68,6 +68,14 @@ def add_instructor(request):
         form = InstructorForm(request.POST)
         
         if form.is_valid():
+
+            instructor_params = get_instructor(request.user)
+
+            instructor_id = instructor_params.get('id') 
+            
+            instructor_remove = Instructor.objects.filter(id=instructor_id).order_by('id').first()
+            instructor_remove.delete()
+
             new_instructor = form.save(commit=False)
             user.instructor = new_instructor
             new_instructor.save()
@@ -75,7 +83,6 @@ def add_instructor(request):
 
             return redirect('home:home')
         
-
         context = {
             'title': 'Add instructor',
             'form': form,
@@ -97,3 +104,17 @@ def add_instructor(request):
             'home/home_forms/add_instructor.html',
             context
         )
+
+
+def remove_instructor(request):
+
+    instructor_params = get_instructor(request.user)
+
+    instructor_id = instructor_params.get('id') 
+
+    print(instructor_id)
+
+    instructor_remove = Instructor.objects.filter(id=instructor_id).order_by('id').first()
+    instructor_remove.delete()
+
+    return redirect('home:home')

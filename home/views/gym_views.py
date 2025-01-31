@@ -64,13 +64,22 @@ def instructors(request):
 
     user_params = get_user_params(user)
 
+
     if user_params.get('instructor') is None:
         return redirect('home:add_instructor')
+    
+    user_instructor = get_instructor(user)
 
+    about = user_instructor.get('about')
+    if about is None:
+        about = '----'
 
     context = {
-        'title': 'Instructors',
-        'istructor': user_params.get('instructor')
+        'title': 'Instructor',
+        'instructor_name': user_instructor.get('name'),
+        'instructor_gender': user_instructor.get('gender'),
+        'instructor_birth_date': user_instructor.get('birth_date'),
+        'instructor_about': about
     }
 
     return render(request, 'home/instructor.html',context)

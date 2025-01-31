@@ -12,7 +12,7 @@ class Instructor(models.Model):
     name = models.CharField(max_length=100,blank=True,null=True)
     birth_date = models.DateTimeField(default=datetime.now())
     gender = models.CharField(max_length=1, choices=gender_choices,blank=True,null=True)  # Limitando a 1 caractere
-    about = models.CharField(max_length=100, blank=True, null=True)
+    about = models.TextField(max_length=400, blank=True, null=True)
 
     def __str__(self):
         return str(self.name) if self.name else "Unnamed"

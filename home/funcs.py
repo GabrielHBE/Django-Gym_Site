@@ -30,6 +30,20 @@ def get_user_params(user):
     }
 
 
+def get_instructor(user):
+    
+    user_params = UserParams.objects.filter(user_id=user.id).first()
+
+    instructor = user_params.instructor
+
+    return {
+        'name': instructor.name,
+        'gender': instructor.gender,
+        'birth_date': instructor.birth_date,
+        'about': instructor.about,
+        'id': instructor.id
+    }
+
 def get_user_workout(user_):
 
     user_params = get_user_params(user_)

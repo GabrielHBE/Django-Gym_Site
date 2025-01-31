@@ -4,16 +4,38 @@
     <h1 class = "view_title">
         Instructor
     </h1>
-
-    {% if instructor%}
-
-
-    {% else %}
         
-        <div class="Instructor">
-            gg
+    <div class="instructor_backgound">
+
+        <h1 class = "backgound_text">
+            Data:
+        </h1>
+
+        <p>
+            Name: {{instructor_name}}
+        </p>
+        <p>
+            Gender: {{instructor_gender}}
+        </p>
+        <p>
+            Gender: {{instructor_birth_date}}
+        </p>
+        <p>
+            About: {{instructor_about}}
+        </p>
+
+        <div class="instructor_buttons">
+            <a href="{% url "home:add_instructor" %}" >
+                <button class="instructor_button">Change instructor</button>
+            </a>
+
+            <a href="{% url "home:remove_instructor" %}">
+                <button class="instructor_button">Remove instructor</button>
+            </a>
+            
         </div>
 
-    {% endif %}
+    </div>
+
 
 {% endblock content %}
