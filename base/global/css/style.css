@@ -308,8 +308,13 @@ button:hover{top:-4px;box-shadow:0 4px 3px #999}
     background-color: whitesmoke;
     border-radius: 15px;
     width: 70%;
+    height: auto;
     margin-left: 13%;
-
+    padding: 10px; /* Adiciona um pequeno espaçamento interno */
+    
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .instructor_button{
